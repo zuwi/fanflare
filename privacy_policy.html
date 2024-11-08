@@ -217,18 +217,30 @@
 
     <div id="footer-placeholder"></div>
     <script>
-        // Load the external header file and inject it into the page
-        fetch('header.html')
-            .then(response => response.text())
-            .then(data => {
+      // Load the external header file and inject it into the page
+      fetch('header.html')
+              .then(response => response.text())
+              .then(data => {
                 document.getElementById('header-placeholder').innerHTML = data;
-            });
-        // Load the external footer file and inject it into the page
-        fetch('footer.html')
-            .then(response => response.text())
-            .then(data => {
+
+                // Ermöglicht das Aufklappen/Einklappen des Headers für Mobiles.
+                // Füge den Event-Listener für den Button erst hinzu, nachdem der Header geladen wurde
+                const mobileMenuButton = document.getElementById('mobile-menu-button');
+                if (mobileMenuButton) {
+                  mobileMenuButton.addEventListener('click', function() {
+                    const menu = document.getElementById('navbar-default');
+                    if (menu) {
+                      menu.classList.toggle('hidden');
+                    }
+                  });
+                }
+              });
+      // Load the external footer file and inject it into the page
+      fetch('footer.html')
+              .then(response => response.text())
+              .then(data => {
                 document.getElementById('footer-placeholder').innerHTML = data;
-            });
+              });
     </script>
   </body>
 </html>
