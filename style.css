@@ -17,6 +17,19 @@
   width: 600px;
   height: 800px;
 }
+/* Bildanpassung für kleinere Bildschirme */
+@media (max-width: 768px) {
+  .slider-size {
+    width: 100%; /* passt sich der Bildschirmbreite an */
+    height: auto; /* passt die Höhe proportional an */
+  }
+}
+.swiper-slide img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* skaliert das Bild, um den verfügbaren Platz zu nutzen */
+  border-radius: 20px; /* rundet die Ecken für ein einheitliches Aussehen */
+}
 
 #successMessage {
   animation: fadeInOut 4s ease-in-out;
@@ -24,4 +37,9 @@
 @keyframes fadeInOut {
   0%, 100% { opacity: 0; }
   10%, 90% { opacity: 1; }
+}
+
+/* Die Höhe des Country-Feldes auf 50px setzen. Wurde nicht auf jedem Gerät gleich gross angezeigt */
+.h-50px {
+  height: 50px;
 }
