@@ -54,11 +54,32 @@
         .then(response => response.text())
         .then(data => {
             document.getElementById('header-placeholder').innerHTML = data;
-            const contactLink = document.getElementById("contact-link");
+
+            // Ermöglicht das Aufklappen/Einklappen des Headers für Mobiles.
+            // Füge den Event-Listener für den Button erst hinzu, nachdem der Header geladen wurde
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            if (mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', function() {
+                    const menu = document.getElementById('navbar-default');
+                    if (menu) {
+                        menu.classList.toggle('hidden');
+                    }
+                });
+            }
+
+            // Ändere die Farbe des Contact-Links auf weiss, wenn auf der Seite contact.html
             const currentPath = window.location.pathname;
-            console.log("test: " + currentPath)
             if (currentPath.includes("contact.html")) {
-                contactLink.className = "block py-2 pr-4 pl-3 text-white lg:hover:text-gray-400 hover:bg-gray-700 hover:text-gray-400 lg:hover:bg-transparent border-gray-700 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0"
+                const contactLinkDesktop = document.getElementById("contact-link-desktop");
+                const contactLinkMobile = document.getElementById("contact-link-mobile");
+                if (contactLinkDesktop) {
+                    contactLinkDesktop.classList.remove('text-gray-400');
+                    contactLinkDesktop.classList.add('text-white');
+                }
+                if (contactLinkMobile) {
+                    contactLinkMobile.classList.remove('text-gray-400');
+                    contactLinkMobile.classList.add('text-white');
+                }
             }
         });
     // Load the external footer file and inject it into the page
