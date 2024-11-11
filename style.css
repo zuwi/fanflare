@@ -16,6 +16,8 @@
 .slider-size {
   width: 600px;
   height: 800px;
+  overflow: hidden; /* Verhindert, dass der Inhalt unten abgeschnitten wird */
+  border-radius: 20px; /* Runden der Ecken des Containers */
 }
 /* Bildanpassung für kleinere Bildschirme */
 @media (max-width: 768px) {
@@ -24,9 +26,9 @@
     height: auto; /* passt die Höhe proportional an */
   }
 }
-.swiper-slide img {
+.swiper-slide img, .swiper-slide video {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover; /* skaliert das Bild, um den verfügbaren Platz zu nutzen */
   border-radius: 20px; /* rundet die Ecken für ein einheitliches Aussehen */
 }
