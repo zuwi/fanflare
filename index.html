@@ -27,19 +27,19 @@
         <div class="swiper-slide">
           <div class="bg-indigo-50 flex justify-center items-center">
             <!--img src="images/model1.png"-->
-            <video src="videos/velo.mp4" autoplay loop muted playsinline class="max-w-full h-auto"></video>
+            <video src="videos/velo.mp4" autoplay loop muted playsinline preload="auto" class="swiper-lazy max-w-full h-auto"></video>
           </div>
         </div>
         <div class="swiper-slide">
           <div class="bg-indigo-50 flex justify-center items-center">
             <!--img src="images/model2.png"-->
-            <video src="videos/teacher.mp4" autoplay loop muted playsinline class="max-w-full h-auto"></video>
+            <video src="videos/teacher.mp4" autoplay loop muted playsinline preload="auto" class="swiper-lazy max-w-full h-auto"></video>
           </div>
         </div>
         <div class="swiper-slide">
           <div class="bg-indigo-50 flex justify-center items-center">
             <!--img src="images/model3.png"-->
-            <video src="videos/walk.mp4" autoplay loop muted playsinline class="max-w-full h-auto"></video>
+            <video src="videos/walk.mp4" autoplay loop muted playsinline preload="auto" class="swiper-lazy max-w-full h-auto"></video>
           </div>
         </div>
       </div>
@@ -300,6 +300,9 @@
               el: ".progress-slide-carousel .swiper-pagination",
               type: "progressbar",
           },
+         // Aktiviert Lazy Loading für den Swiper.
+         // Die Videos werden erst geladen, wenn der entsprechende Slide angezeigt wird.
+         lazy: true
       });
   </script>
 
